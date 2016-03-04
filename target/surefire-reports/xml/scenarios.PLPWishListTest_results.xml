@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="GEN - Wish List Test"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="19.277">
+  <properties />
+  
+  
+            <testcase name="testScenario" time="19.277" classname="scenarios.PLPWishListTest" />
+      
+</testsuite>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test Suite" parallel="tests" thread-count="1">
+    <test verbose="1" name="GEN - Login Test">
+        <classes>
+            <class name="scenarios.LoginTest" />
+        </classes>
+    </test>
+    <test verbose="1" name="GEN - Wish List Test">
+        <classes>
+            <class name="scenarios.PLPWishListTest"/>
+        </classes>
+    </test>
+    <test verbose="1" name="GEN - Check Out Test">
+        <classes>
+            <class name="scenarios.CheckOutTest"/>
+        </classes>
+    </test>
+</suite>
