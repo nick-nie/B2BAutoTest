@@ -1,9 +1,10 @@
 package models;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import util.TestContext;
+import webdriver.WebDriverFactory;
 
 /**
  * Created by Nick_Nie on 3/3/2016.
@@ -15,7 +16,8 @@ public class BaseTest {
 
     @BeforeClass
     public WebDriver setup(){
-        driver = new FirefoxDriver();
+//        driver = new FirefoxDriver();
+        driver = WebDriverFactory.creator(new TestContext());
         driver.manage().window().maximize();
         driver.navigate().to(BASE_URL);
         return driver;
