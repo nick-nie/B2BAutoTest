@@ -18,6 +18,7 @@ public class CommonPage {
     public static final String SIGN_OUT = "//a[.='Sign Out']";
     public static final String SHOPPING_CART = "//div[@id='header']/div/ul/li[7]/a";
     public static final String SIGN_IN = "Sign in";
+    public static final String WELCOME = "//li[@class='logged_in']";
 
     @FindBy (xpath = CommonPage.WISH_LIST_NAV)
     private WebElement wishListNav;
@@ -33,6 +34,9 @@ public class CommonPage {
 
     @FindBy (xpath = CommonPage.SHOPPING_CART)
     private WebElement shoppingCart;
+
+    @FindBy (xpath = CommonPage.WELCOME)
+    private WebElement welcome;
 
     public void clickOnWishListNav(){
         wishListNav.click();
@@ -51,4 +55,6 @@ public class CommonPage {
     public void clickOnShoppingCart(){
         shoppingCart.click();
     }
+
+    public boolean isDisplayedWelcome() {return welcome.isDisplayed();}
 }

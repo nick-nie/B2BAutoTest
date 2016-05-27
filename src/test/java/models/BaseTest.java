@@ -1,14 +1,18 @@
 package models;
 
+import listener.ScreenshotListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.uncommons.reportng.HTMLReporter;
 import util.TestContext;
 import webdriver.WebDriverFactory;
 
 /**
  * Created by Nick_Nie on 3/3/2016.
  */
+@Listeners({ ScreenshotListener.class })
 public class BaseTest {
 
     protected WebDriver driver;
