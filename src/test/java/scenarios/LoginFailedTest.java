@@ -2,6 +2,7 @@ package scenarios;
 
 import models.BaseTest;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CommonPage;
 import pages.LoginPage;
@@ -13,6 +14,7 @@ public class LoginFailedTest extends BaseTest{
 
     public static final String EMAIL = "gi.sun@rustic.com";
     public static final String PASSWORD = "12341234";
+    public static final String ALERTMSG = "Your username or password was incorrect.";
     private LoginPage loginPage;
     private CommonPage commonPage;
 
@@ -22,5 +24,6 @@ public class LoginFailedTest extends BaseTest{
         commonPage = PageFactory.initElements(driver, CommonPage.class);
         commonPage.clickOnSignIn();
         loginPage.loginProcess(EMAIL, PASSWORD);
+        Assert.assertEquals(loginPage.getloginFailAlert(), ALERTMSG);
     }
 }

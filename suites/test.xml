@@ -6,6 +6,11 @@
             <class name="scenarios.LoginTest" />
         </classes>
     </test>
+    <test verbose="1" name="GEN - Login Failed Test">
+        <classes>
+            <class name="scenarios.LoginFailedTest" />
+        </classes>
+    </test>
     <test verbose="1" name="GEN - Wish List Test">
         <classes>
             <class name="scenarios.PLPWishListTest"/>
