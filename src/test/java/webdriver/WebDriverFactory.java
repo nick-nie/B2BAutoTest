@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import util.BrowserProfile;
 import util.TestContext;
 import webdriver.creator.WebDriverCreator;
 import webdriver.creator.impl.ChromeDriverCreator;
@@ -32,6 +33,6 @@ public class WebDriverFactory {
             default:
                 break;
         }
-        return creator.createWebDriver();
+        return creator.createWebDriver(context.getBrowserProfile());
     }
 }

@@ -11,6 +11,7 @@ public class TestContext {
 
     public static final String PROJECT_PROPERTIES= "project.properties";
     private BrowserType browserType;
+    private BrowserProfile browserProfile;
 
     public TestContext(){
         initialize();
@@ -18,6 +19,10 @@ public class TestContext {
 
     public BrowserType getBrowserType(){
         return browserType;
+    }
+
+    public BrowserProfile getBrowserProfile(){
+        return browserProfile;
     }
 
 
@@ -36,6 +41,8 @@ public class TestContext {
 
     public void setFields(Properties properties){
         browserType = BrowserType.valueOf(properties.getProperty("browser.type"));
+        browserProfile = BrowserProfile.valueOf(properties.getProperty("browser.profile"));
+
     }
 
 }

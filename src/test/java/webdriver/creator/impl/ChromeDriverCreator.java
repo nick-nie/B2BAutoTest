@@ -2,6 +2,7 @@ package webdriver.creator.impl;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import util.BrowserProfile;
 import webdriver.creator.WebDriverCreator;
 
 /**
@@ -9,8 +10,9 @@ import webdriver.creator.WebDriverCreator;
  */
 public class ChromeDriverCreator implements WebDriverCreator{
 
-    public WebDriver createWebDriver() {
+    public WebDriver createWebDriver(BrowserProfile browserProfile) {
         WebDriver driver = new ChromeDriver();
+        browserProfile.setWindowSize(driver);
         return driver;
     }
 }

@@ -1,7 +1,10 @@
 package pages;
 
+import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -12,14 +15,18 @@ public class CommonPage {
 
     public static final String WISH_LIST_NAV = "//ul[@class='nav clearfix']/li[6]/a";
     public static final String NAVIGATION_BAR = "//div[@class='navigationbarcollectioncomponent']/ul/li";
-    public static final String SIGN_OUT = "//div[@class='headerContent ']/ul/li[5]/a";
-    public static final String SHOPPING_CART = "//div[@class='headerContent ']/ul/li[7]/a";
+    public static final String SIGN_OUT = "//a[.='Sign Out']";
+    public static final String SHOPPING_CART = "//div[@id='header']/div/ul/li[7]/a";
+    public static final String SIGN_IN = "Sign in";
 
     @FindBy (xpath = CommonPage.WISH_LIST_NAV)
     private WebElement wishListNav;
 
     @FindBy (xpath = CommonPage.NAVIGATION_BAR)
     private List<WebElement> navigationBar;
+
+    @FindBy (partialLinkText = CommonPage.SIGN_IN)
+    private WebElement signIn;
 
     @FindBy (xpath = CommonPage.SIGN_OUT)
     private WebElement signOut;
@@ -34,6 +41,8 @@ public class CommonPage {
     public void clickOnFirstNavBar(int count) {
         navigationBar.get(count).click();
     }
+
+    public void clickOnSignIn(){signIn.click();}
 
     public void clickOnSignOut(){
         signOut.click();

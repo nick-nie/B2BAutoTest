@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="19.277">
+           time="19.623">
   <properties />
   
   
-            <testcase name="testScenario" time="19.277" classname="scenarios.PLPWishListTest" />
+            <testcase name="testScenario" time="19.623" classname="scenarios.PLPWishListTest" />
       
 </testsuite>

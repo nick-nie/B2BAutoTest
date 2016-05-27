@@ -1,13 +1,19 @@
 package scenarios;
 
+import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import models.BaseTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CommonPage;
 import pages.LoginPage;
 import pages.ProductListPage;
 import pages.WishListPage;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Nick_Nie on 3/2/2016.
@@ -27,6 +33,7 @@ public class PLPWishListTest extends BaseTest{
         commonPage = PageFactory.initElements(driver, CommonPage.class);
         productListPage = PageFactory.initElements(driver, ProductListPage.class);
         wishListPage = PageFactory.initElements(driver, WishListPage.class);
+        commonPage.clickOnSignIn();
         loginPage.loginProcess(EMAIL, PASSWORD);
         commonPage.clickOnFirstNavBar(0);
         productListPage.addOrRemoveWishList(0, "Add");
@@ -45,7 +52,7 @@ public class PLPWishListTest extends BaseTest{
         Thread.sleep(2000);
         wishListPage.clickOnSelectAll();
         wishListPage.clickOnAddToCartBottom();
-        Thread.sleep(2000);
+        (new WebDriverWait(driver,10)).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[.='Sign Out']")));
         commonPage.clickOnSignOut();
     }
 }

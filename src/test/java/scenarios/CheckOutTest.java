@@ -1,10 +1,15 @@
 package scenarios;
 
+import com.epam.hybris.common.webdriver.creator.WebDriverCreator;
 import models.BaseTest;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Nick_Nie on 3/3/2016.
@@ -26,12 +31,14 @@ public class CheckOutTest extends BaseTest{
         shoppingCartPage = PageFactory.initElements(driver, ShoppingCartPage.class);
         checkOutPage = PageFactory.initElements(driver, CheckOutPage.class);
 
+        commonPage.clickOnSignIn();
         loginPage.loginProcess("gi.sun@rustic-hw.com", "12341234");
         commonPage.clickOnFirstNavBar(0);
         productListPage.clickOnAddToCart(0);
         productListPage.clickOnAddToCart(1);
         productListPage.clickOnAddToCart(2);
         productListPage.clickOnAddToCart(3);
+        Thread.sleep(3000);
         commonPage.clickOnShoppingCart();
         shoppingCartPage.sendKeyToQuantity("2", 0);
         shoppingCartPage.clickOnUpdateItems(0);
@@ -68,6 +75,7 @@ public class CheckOutTest extends BaseTest{
         Thread.sleep(2000);
 
         //commonPage.clickOnFirstNavBar(0);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         commonPage.clickOnSignOut();
 
     }

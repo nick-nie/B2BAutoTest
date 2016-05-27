@@ -12,13 +12,16 @@ import webdriver.WebDriverFactory;
 public class BaseTest {
 
     protected WebDriver driver;
-    public static final String BASE_URL = "https://electronics.epam.goanywhere.io:9102/storefront/powertools/en/USD/login/?site=powertools";
+    //public static final String BASE_URL = "https://electronics.epam.goanywhere.io:9102/storefront/powertools/en/USD/login/?site=powertools";
+    //public static final String BASE_URL = "https://localhost:9002/store/?site=powertools";
+    //public static final String BASE_URL = "https://localhost:9002/yacceleratorstorefront/?site=powertools";
+    public static final String BASE_URL = "https://powertools.epam.goanywhere.io:9102/store";
 
     @BeforeClass
     public WebDriver setup(){
 //        driver = new FirefoxDriver();
         driver = WebDriverFactory.creator(new TestContext());
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.navigate().to(BASE_URL);
         return driver;
     }
