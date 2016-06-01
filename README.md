@@ -1,1 +1,1 @@
-# HybrisB2BTest
+# ecommerce platform testing automation
